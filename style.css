@@ -1,0 +1,89 @@
+html, body{
+  background-color: #5792BA;
+  color: #eee;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.map{
+  box-sizing: border-box;
+  font-size: 40px;
+  height: 100vh;
+  position: relative;
+  width: 100vw;
+}
+
+.grid{
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.grid > .square{
+  border: 0.025em #5792BA solid;
+  height: 1em;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1em;
+}
+
+.chamber{
+  background-color: #eee;
+  border: 0.1em #5792BA solid;
+  box-sizing: border-box;
+  height: 1em;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1em;
+}
+
+.door{
+  background-color: #eee;
+  border: 0.05em #5792BA solid;
+  box-sizing: border-box;
+  height: 0.5em;
+  position: absolute;
+  width: 0.4em;
+  z-index: 10;
+}
+
+.door.north, .door.south{
+  left: 0;
+}
+
+.door.east, .door.west{
+  top: 0;
+}
+
+.door.north{
+  top: 0;
+  transform: translate(25%, -75%) rotate(90deg);
+}
+
+.door.east{
+  left: 100%;
+  transform: translate(-25%, 25%);
+}
+
+.door.south{
+  top: 100%;
+  transform: translate(25%, -25%) rotate(270deg);
+}
+
+.door.west{
+  left: 0;
+  transform: translate(-75%, 25%);
+}
+
+.door.secret{
+  border: none;
+  border-radius: 0.25em;
+  color: #5792BA;
+  line-height: 0.25em;
+  text-align: left;
+}
