@@ -3,6 +3,7 @@ html, body{
   color: #eee;
   font-family: sans-serif;
   margin: 0;
+  //overflow: hidden;
   padding: 0;
 }
 
@@ -10,6 +11,7 @@ html, body{
   box-sizing: border-box;
   font-size: 40px;
   height: 100vh;
+  overflow: scroll;
   position: relative;
   width: 100vw;
 }
@@ -24,11 +26,17 @@ html, body{
 
 .grid > .square{
   border: 0.025em #5792BA solid;
+  box-sizing: border-box;
   height: 1em;
   left: 0;
   position: absolute;
   top: 0;
   width: 1em;
+}
+
+.grid > .square:hover{
+  //background-color: rgba(255, 255, 255, 0.25);
+  //cursor: pointer;
 }
 
 .chamber{
@@ -42,48 +50,74 @@ html, body{
   width: 1em;
 }
 
-.door{
+.chamber-number{
+  color: #5792BA;
+  font-weight: bold;
+  height: 1em;
+  left: 0;
+  line-height: 0.95em;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 1em;
+}
+
+.chamber-number > p{
+  font-size: 0.75em;
+  margin: 0;
+  padding: 0;
+}
+
+.passage{
   background-color: #eee;
-  border: 0.05em #5792BA solid;
   box-sizing: border-box;
-  height: 0.5em;
   position: absolute;
   width: 0.4em;
   z-index: 10;
 }
 
-.door.north, .door.south{
-  left: 0;
+.passage.north, .passage.south{
+  transform: translate(-50%, -50%) rotate(270deg);
 }
 
-.door.east, .door.west{
-  top: 0;
+.passage.east, .passage.west{
+  transform: translate(-50%, -50%);
 }
 
-.door.north{
-  top: 0;
-  transform: translate(25%, -75%) rotate(90deg);
+.passage.open{
+  height: 0.8em;
+  z-index: 0;
 }
 
-.door.east{
-  left: 100%;
-  transform: translate(-25%, 25%);
+.passage.open > span{
+  border-left: 0.05em #5792BA solid;
+  box-sizing: border-box;
+  height: 100%;
+  margin: 50%;
+  width: 0;
 }
 
-.door.south{
-  top: 100%;
-  transform: translate(25%, -25%) rotate(270deg);
+.passage.door{
+  border: 0.05em #5792BA solid;
+  height: 0.5em;
 }
 
-.door.west{
-  left: 0;
-  transform: translate(-75%, 25%);
-}
-
-.door.secret{
+.passage.door.secret{
+  background-color: transparent;
   border: none;
+}
+
+.passage.door.secret > p{
+  background-color: #eee;
   border-radius: 0.25em;
   color: #5792BA;
-  line-height: 0.25em;
-  text-align: left;
+  font-size: 70%;
+  height: 70%;
+  line-height: 30%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 100%;
 }
