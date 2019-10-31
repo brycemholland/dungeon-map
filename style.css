@@ -39,7 +39,7 @@ html, body{
   //cursor: pointer;
 }
 
-.chamber{
+.area{
   background-color: #eee;
   border: 0.1em #5792BA solid;
   box-sizing: border-box;
@@ -50,7 +50,7 @@ html, body{
   width: 1em;
 }
 
-.chamber-number{
+.area-number{
   color: #5792BA;
   font-weight: bold;
   height: 1em;
@@ -64,10 +64,41 @@ html, body{
   width: 1em;
 }
 
-.chamber-number > p{
+.area-number > p{
   font-size: 0.75em;
   margin: 0;
   padding: 0;
+}
+
+.tile{
+  box-sizing: border-box;
+  border: 0.025em #5792BA solid;
+  height: 1em;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1em;
+}
+
+.tile.outside{
+  background-color: #5792BA;
+}
+
+.tile.inside{
+  background-color: #eee;
+}
+
+.tile.wall-north{
+  border-top: 0.1em #5792BA solid;
+}
+.tile.wall-east{
+  border-right: 0.1em #5792BA solid;
+}
+.tile.wall-south{
+  border-bottom: 0.1em #5792BA solid;
+}
+.tile.wall-west{
+  border-left: 0.1em #5792BA solid;
 }
 
 .passage{
@@ -75,20 +106,32 @@ html, body{
   box-sizing: border-box;
   position: absolute;
   width: 0.4em;
-  z-index: 10;
+  z-index: 1;
 }
 
-.passage.north, .passage.south{
-  transform: translate(-50%, -50%) rotate(270deg);
+.passage.north{
+  left: 50%;
+  top: -0.1em;
+  transform: translate(-50%, -50%) rotate(90deg);
 }
-
-.passage.east, .passage.west{
+.passage.east{
+  left: 0.9em;
+  top:  50%;
+  transform: translate(-50%, -50%);
+}
+.passage.south{
+  left: 50%;
+  top: 0.9em;
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+.passage.west{
+  left: -0.1em;
+  top:  50%;
   transform: translate(-50%, -50%);
 }
 
 .passage.open{
   height: 0.8em;
-  z-index: 0;
 }
 
 .passage.open > span{
@@ -117,6 +160,7 @@ html, body{
   height: 70%;
   line-height: 30%;
   margin: 0;
+  margin-top: 0.1em;
   padding: 0;
   text-align: center;
   width: 100%;
